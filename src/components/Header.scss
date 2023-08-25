@@ -1,0 +1,13 @@
+@import '../utils/styles.scss';
+
+.header {
+  &__container {
+    background-color: black;
+    padding: 16rem 32rem;
+  }
+  &__title {
+    color: white;
+    font-weight: bold;
+    font-size: 17rem;
+  }
+}
