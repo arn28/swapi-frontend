@@ -1,0 +1,22 @@
+@import '../utils/styles.scss';
+
+.person-cell {
+  &__container {
+    width: 100%;
+    @include flex(row, space-between, center);
+    padding: 16rem;
+    border-bottom: 1rem solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+  &__description {
+    font-size: 14px;
+    color: $TEXT_LIGHT;
+  }
+
+  &__icon {
+    font-size: 12rem;
+  }
+}

@@ -1,0 +1,15 @@
+@import '../utils/styles.scss';
+
+.menu {
+  &__container {
+    box-shadow: 1px 0px 0px 0px #00000026;
+    width: 375rem;
+    min-height: calc(100vh - 52rem);
+  }
+  &__error-message {
+    text-align: center;
+    font-size: 16rem;
+    color: $TEXT_EMPHASIS;
+    padding: 16rem;
+  }
+}
