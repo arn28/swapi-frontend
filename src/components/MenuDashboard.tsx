@@ -33,12 +33,7 @@ export const MenuDashboard = () => {
         {people.length > 0 ? (
           <>
             {people.map((person, index) => (
-              <PersonCell
-                name={person.name}
-                description={person.birth_year}
-                key={index}
-                id={person.url?.slice(29, -1)}
-              />
+              <PersonCell person={person} key={index} />
             ))}
           </>
         ) : isErrorLoading ? (

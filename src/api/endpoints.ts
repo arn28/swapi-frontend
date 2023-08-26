@@ -1,14 +1,25 @@
 import axios from 'axios'
 
 const ENDPOINTS = {
-  PEOPLE: 'https://swapi.dev/api/people/',
+  SWAPI: 'https://swapi.dev/api/',
 }
+
 export const getPeople = async (page: number = 1) => {
-  const response = await axios.get(`${ENDPOINTS.PEOPLE}?page=${page}`)
+  const response = await axios.get(`${ENDPOINTS.SWAPI}people/?page=${page}`)
   return response
 }
 
 export const getOnePeople = async (id: number) => {
-  const response = await axios.get(`${ENDPOINTS.PEOPLE}${id}`)
+  const response = await axios.get(`${ENDPOINTS.SWAPI}people/${id}`)
+  return response
+}
+
+export const getOnePlanet = async (id: number) => {
+  const response = await axios.get(`${ENDPOINTS.SWAPI}planets/${id}`)
+  return response
+}
+
+export const getVehicle = async (id: number) => {
+  const response = await axios.get(`${ENDPOINTS.SWAPI}vehicles/${id}`)
   return response
 }
