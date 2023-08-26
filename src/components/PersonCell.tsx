@@ -5,9 +5,10 @@ import { getIdFromUrl } from '../utils/helpers'
 import { getOnePlanet } from '../api/endpoints'
 interface IProps {
   person: IPeople
+  onClick?: () => void
 }
 
-export const PersonCell = ({ person }: IProps) => {
+export const PersonCell = ({ person, onClick }: IProps) => {
   const [description, setDescription] = useState<string>('-')
 
   const loadHomeworld = async () => {
@@ -23,7 +24,11 @@ export const PersonCell = ({ person }: IProps) => {
   }, [person])
 
   return (
-    <Link to={`/people/${getIdFromUrl(person.url)}`} className='person-cell__container'>
+    <Link
+      onClick={onClick}
+      to={`/people/${getIdFromUrl(person.url)}`}
+      className='person-cell__container'
+    >
       <div className='person-cell__info'>
         <h2 className='person-cell__name'>{person.name}</h2>
         <p className='person-cell__description'>{description}</p>

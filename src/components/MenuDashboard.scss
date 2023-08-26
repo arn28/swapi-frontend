@@ -12,6 +12,10 @@
   left: 0;
   height: calc(100vh - 52rem);
   width: 350rem;
+  background-color: #fff;
+  @media all and (max-width: 720px) {
+    width: 100%;
+  }
 }
 .menu {
   &__container {

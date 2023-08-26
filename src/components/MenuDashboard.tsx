@@ -1,13 +1,17 @@
 import './MenuDashboard.scss'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { getPeople } from '../api/endpoints'
 import { Spinner } from './Spinner'
 import { PersonCell } from './PersonCell'
 
-export const MenuDashboard = () => {
+interface IProps {
+  showMenu: boolean
+  setShowMenu: Dispatch<SetStateAction<boolean>>
+}
+export const MenuDashboard = ({ showMenu, setShowMenu }: IProps) => {
   const [people, setPeople] = useState<IPeople[]>([])
   const [isErrorLoading, SetIsErrorLoading] = useState<boolean>(false)
-
+  const media = window.matchMedia('(max-width: 720px)')
   const loadPeople = async () => {
     try {
       const response = await getPeople()
@@ -28,20 +32,30 @@ export const MenuDashboard = () => {
   }, [])
 
   return (
-    <div className='dashboard__container'>
-      <div className='menu__container'>
-        {people.length > 0 ? (
-          <>
-            {people.map((person, index) => (
-              <PersonCell person={person} key={index} />
-            ))}
-          </>
-        ) : isErrorLoading ? (
-          <h2 className='menu__error-message'>Failed to Load Data</h2>
-        ) : (
-          <Spinner justify='center' label='Loading...' />
-        )}
-      </div>
-    </div>
+    <>
+      {showMenu && (
+        <div className='dashboard__container'>
+          <div className='menu__container'>
+            {people.length > 0 ? (
+              <>
+                {people.map((person, index) => (
+                  <PersonCell
+                    onClick={() => {
+                      if (media.matches) setShowMenu(false)
+                    }}
+                    person={person}
+                    key={index}
+                  />
+                ))}
+              </>
+            ) : isErrorLoading ? (
+              <h2 className='menu__error-message'>Failed to Load Data</h2>
+            ) : (
+              <Spinner justify='center' label='Loading...' />
+            )}
+          </div>
+        </div>
+      )}
+    </>
   )
 }

@@ -1,12 +1,16 @@
 import { Link, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import './PersonDetail.scss'
 import { getOnePeople, getVehicle } from '../api/endpoints'
 import { Header } from './Header'
 import { DataCell } from './DataCell'
 import { getIdFromUrl } from '../utils/helpers'
+import { PageContent } from './PageContent'
 
-export const PersonDetail = () => {
+interface IProps {
+  setShowMenu: Dispatch<SetStateAction<boolean>>
+}
+export const PersonDetail = ({ setShowMenu }: IProps) => {
   const [person, setPerson] = useState<IPeople>()
   const [vehicles, setVehicles] = useState<string[]>([])
   const params = useParams()
@@ -54,8 +58,14 @@ export const PersonDetail = () => {
   }, [person])
 
   return (
-    <div className='person-detail__container'>
-      <Link to='/'>
+    <PageContent>
+      <Link
+        onClick={() => {
+          setShowMenu(true)
+        }}
+        className='person-detail__header'
+        to='/'
+      >
         <Header title={person?.name} iconBack />
       </Link>
       <div className='person-detail__data'>
@@ -76,6 +86,6 @@ export const PersonDetail = () => {
           </>
         )}
       </div>
-    </div>
+    </PageContent>
   )
 }
