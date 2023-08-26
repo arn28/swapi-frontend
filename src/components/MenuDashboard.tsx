@@ -28,18 +28,25 @@ export const MenuDashboard = () => {
   }, [])
 
   return (
-    <div className='menu__container'>
-      {people.length > 0 ? (
-        <>
-          {people.map((person, index) => (
-            <PersonCell name={person.name} description={person.birth_year} key={index} />
-          ))}
-        </>
-      ) : isErrorLoading ? (
-        <h2 className='menu__error-message'>Failed to Load Data</h2>
-      ) : (
-        <Spinner justify='center' label='Loading...' />
-      )}
+    <div className='dashboard__container'>
+      <div className='menu__container'>
+        {people.length > 0 ? (
+          <>
+            {people.map((person, index) => (
+              <PersonCell
+                name={person.name}
+                description={person.birth_year}
+                key={index}
+                id={person.url?.slice(29, -1)}
+              />
+            ))}
+          </>
+        ) : isErrorLoading ? (
+          <h2 className='menu__error-message'>Failed to Load Data</h2>
+        ) : (
+          <Spinner justify='center' label='Loading...' />
+        )}
+      </div>
     </div>
   )
 }

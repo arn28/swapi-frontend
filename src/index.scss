@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   @include fontStack();
+  text-decoration: none;
   font-size: 16rem;
 }
 

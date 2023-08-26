@@ -1,0 +1,30 @@
+@import '../utils/styles.scss';
+
+.person-detail {
+  &__container {
+    position: fixed;
+    top: 52rem;
+    padding-left: 350rem;
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 20rem;
+    text-align: center;
+    padding: 16rem;
+  }
+
+  &__data {
+    padding: 16rem;
+    max-width: 900rem;
+    margin: auto;
+  }
+
+  &__category {
+    padding: 16rem 0;
+  }
+
+  &__general-info {
+    padding-bottom: 16rem;
+  }
+}

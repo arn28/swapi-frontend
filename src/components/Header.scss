@@ -4,10 +4,16 @@
   &__container {
     background-color: black;
     padding: 16rem 32rem;
+    @include flex(row, start, center);
+    gap: 16rem;
   }
   &__title {
     color: white;
     font-weight: bold;
     font-size: 17rem;
+  }
+  &__icon {
+    font-size: 12rem;
+    color: #fff;
   }
 }
