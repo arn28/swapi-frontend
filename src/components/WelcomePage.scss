@@ -9,7 +9,7 @@
     @include flex(column, center, center);
   }
   &__greeting {
-    color: #feda4a;
+    color: $STARWARS_COLOR;
     letter-spacing: 4rem;
     font-family: 'Star Wars', sans-serif;
     font-size: 20rem;
@@ -25,7 +25,7 @@
     color: $TEXT_LIGHT;
   }
   &__link {
-    color: #feda4a;
+    color: $STARWARS_COLOR;
     font-size: 12rem;
     font-style: italic;
   }

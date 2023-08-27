@@ -5,6 +5,7 @@ import { MenuDashboard } from './components/MenuDashboard'
 import { PersonDetail } from './components/PersonDetail'
 import { WelcomePage } from './components/WelcomePage'
 import { useState } from 'react'
+import { FooterAttribution } from './components/FooterAttribution'
 
 function App() {
   const [showMenu, setShowMenu] = useState<boolean>(true)
@@ -25,6 +26,7 @@ function App() {
           <Route path='/' element={<WelcomePage />} />
           <Route path='/people/:id' element={<PersonDetail setShowMenu={setShowMenu} />} />
         </Routes>
+        <FooterAttribution />
       </BrowserRouter>
     </>
   )
