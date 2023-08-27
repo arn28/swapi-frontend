@@ -8,3 +8,13 @@ export const getIdFromUrl = (url: string): number => {
     return -1
   }
 }
+
+export const getPageFromUrl = (url: string): number => {
+  const lastEqual = url.lastIndexOf('=')
+  if (lastEqual !== -1) {
+    const id = url.substring(lastEqual + 1)
+    return Number(id)
+  } else {
+    return -1
+  }
+}

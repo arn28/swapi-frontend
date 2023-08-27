@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { getPeople } from '../api/endpoints'
 import { Spinner } from './Spinner'
 import { PersonCell } from './PersonCell'
+import { getPageFromUrl } from '../utils/helpers'
 
 interface IProps {
   showMenu: boolean
@@ -10,11 +11,14 @@ interface IProps {
 }
 export const MenuDashboard = ({ showMenu, setShowMenu }: IProps) => {
   const [people, setPeople] = useState<IPeople[]>([])
+  const [page, setPage] = useState<number>(1)
+  const [peopleLength, setPeopleLength] = useState<number>(0)
   const [isErrorLoading, SetIsErrorLoading] = useState<boolean>(false)
   const media = window.matchMedia('(max-width: 720px)')
-  const loadPeople = async () => {
+
+  const loadPeople = async (page: number) => {
     try {
-      const response = await getPeople()
+      const response = await getPeople(page)
       return response
     } catch (error) {
       SetIsErrorLoading(true)
@@ -22,14 +26,17 @@ export const MenuDashboard = ({ showMenu, setShowMenu }: IProps) => {
   }
 
   const showPeople = async () => {
-    const response = await loadPeople()
+    const response = await loadPeople(page)
     if (!response) return
-    setPeople(response.data.results)
+    setPeopleLength(response.data.count)
+    setPeople([...new Set(people.concat(response.data.results))])
+    if (!response.data.next) return
+    setPage(getPageFromUrl(response.data.next))
   }
 
   useEffect(() => {
     showPeople()
-  }, [])
+  }, [page])
 
   return (
     <>
@@ -47,6 +54,7 @@ export const MenuDashboard = ({ showMenu, setShowMenu }: IProps) => {
                     key={index}
                   />
                 ))}
+                {people.length !== peopleLength && <Spinner justify='center' label='Loading...' />}
               </>
             ) : isErrorLoading ? (
               <h2 className='menu__error-message'>Failed to Load Data</h2>
