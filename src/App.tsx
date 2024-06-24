@@ -1,5 +1,5 @@
 import './App.scss'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { Header } from './components/Header'
 import { MenuDashboard } from './components/MenuDashboard'
 import { PersonDetail } from './components/PersonDetail'
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <Link
           onClick={() => {
             setShowMenu(true)
@@ -24,10 +24,13 @@ function App() {
         <MenuDashboard showMenu={showMenu} setShowMenu={setShowMenu} />
         <Routes>
           <Route path='/' element={<WelcomePage />} />
-          <Route path='/people/:id' element={<PersonDetail setShowMenu={setShowMenu} />} />
+          <Route
+            path='/people/:id'
+            element={<PersonDetail setShowMenu={setShowMenu} />}
+          />
         </Routes>
         <FooterAttribution />
-      </BrowserRouter>
+      </Router>
     </>
   )
 }
