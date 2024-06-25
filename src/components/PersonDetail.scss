@@ -5,6 +5,7 @@
     font-size: 20rem;
     text-align: center;
     padding: 16rem;
+    margin-top: 52rem;
     display: block;
     @media all and (max-width: 720px) {
       display: none;
@@ -30,4 +31,26 @@
       display: block;
     }
   }
+}
+.lightsaber-border {
+  border-radius: 12px;
+  border: 3px solid $STARWARS_COLOR;
+  box-shadow: 0 0 15px $STARWARS_COLOR, inset 0 0 15px $STARWARS_COLOR;
+  overflow: hidden;
+  height: 240px;
+  aspect-ratio: 1;
+  background-position: top;
+  background-size: cover;
+  margin: 28px auto;
+  @media all and (max-width: 720px) {
+    height: auto;
+  }
+}
+
+.loading-container {
+  margin-top: 52rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
 }

@@ -6,6 +6,9 @@
     padding: 16rem 32rem;
     @include flex(row, start, center);
     gap: 16rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
   &__title {
     color: white;

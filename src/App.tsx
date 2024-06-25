@@ -18,6 +18,7 @@ function App() {
             setShowMenu(true)
           }}
           to='/'
+          // style={{ position: 'fixed', width: '100%' }}
         >
           <Header title='People from start wars' />
         </Link>
