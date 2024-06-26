@@ -2,8 +2,8 @@
 .data-cell {
   &__container {
     @include flex(row, space-between, center);
-    padding: 16rem 0;
-    border-bottom: 1rem solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   &__label {

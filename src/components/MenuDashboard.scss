@@ -8,10 +8,10 @@
   z-index: 2;
   @include flex(column, start, center);
   position: fixed;
-  top: 52rem;
+  top: 52px;
   left: 0;
-  height: calc(100% - 52rem);
-  width: 350rem;
+  height: calc(100% - 52px);
+  width: 350px;
   background-color: #fff;
   @media all and (max-width: 720px) {
     width: 100%;
@@ -28,8 +28,8 @@
 
   &__error-message {
     text-align: center;
-    font-size: 16rem;
+    font-size: 16px;
     color: $TEXT_EMPHASIS;
-    padding: 16rem;
+    padding: 16px;
   }
 }

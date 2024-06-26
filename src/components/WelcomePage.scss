@@ -4,29 +4,29 @@
 .welcome {
   &__container {
     text-align: center;
-    height: calc(100vh - 52rem);
-    padding: 16rem;
+    height: calc(100vh - 52px);
+    padding: 16px;
     @include flex(column, center, center);
   }
   &__greeting {
     color: $STARWARS_COLOR;
-    letter-spacing: 4rem;
+    letter-spacing: 4px;
     font-family: 'Star Wars', sans-serif;
-    font-size: 20rem;
+    font-size: 20px;
     font-weight: bold;
-    text-shadow: 1rem 0 0 black, 0 1rem 0 black, -1rem 0 0 black, 0 -1rem 0 black;
+    text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
   }
 
   &__title {
-    font-size: 32rem;
-    margin: 16rem 0;
+    font-size: 32px;
+    margin: 16px 0;
   }
   &__info {
     color: $TEXT_LIGHT;
   }
   &__link {
     color: $STARWARS_COLOR;
-    font-size: 12rem;
+    font-size: 12px;
     font-style: italic;
   }
 }

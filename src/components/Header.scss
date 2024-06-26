@@ -3,9 +3,9 @@
 .header {
   &__container {
     background-color: black;
-    padding: 16rem 32rem;
+    padding: 16px 32px;
     @include flex(row, start, center);
-    gap: 16rem;
+    gap: 16px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -13,10 +13,10 @@
   &__title {
     color: white;
     font-weight: bold;
-    font-size: 17rem;
+    font-size: 17px;
   }
   &__icon {
-    font-size: 12rem;
+    font-size: 12px;
     color: #fff;
   }
 }

@@ -2,8 +2,8 @@
 
 .spinner {
   &__icon {
-    width: 24rem;
-    --b: 6rem; /* the border thickness */
+    width: 24px;
+    --b: 6px; /* the border thickness */
     aspect-ratio: 1;
     border-radius: 50%;
     padding: 1px;
@@ -17,8 +17,8 @@
 
   &__container {
     @include flex(row, start, center);
-    gap: 16rem;
-    padding: 16rem;
+    gap: 16px;
+    padding: 16px;
   }
 
   &__label {
